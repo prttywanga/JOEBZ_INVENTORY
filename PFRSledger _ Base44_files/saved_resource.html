@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<!-- saved from url=(0306)https://preview-%2Dpfrs-ledger-prime.base44.app/?hide_badge=true&base44_data_env=prod&server_url=https%3A%2F%2Fpreview-%2Dpfrs-ledger-prime.base44.app&functions_version=preview&_b44_commit=884b7872ea50547df8cb067a24f35aa26b8b53d9&previewFE_version=1&previewFE_build=aea6f919daaaafb78e820e6347ea6626050c4fe2 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" type="image/svg+xml" href="https://base44.com/logo_v2.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="https://preview--pfrs-ledger-prime.base44.app/manifest.json">
+    <title>Joebz Computer Sales and Services</title>
+    <script type="module" crossorigin="" src="./index-0WcXoPLm.js.download"></script>
+    <link rel="stylesheet" crossorigin="" href="./index-Clexk6w3.css">
+    <script type="module">
+if (window.self === window.top) {
+  let lastPath = "";
+  // The visitor's analytics_storage choice from window.__b44Consent; null until one is known.
+  let consentGranted = null;
+  function getPageNameFromPath(path) {
+    const segments = path.split("/").filter(Boolean);
+    return segments[0] || null;
+  }
+  // Same rules as @base44/sdk analytics. Read on every send: the server sets the meta.
+  function analyticsMode() {
+    const meta = document.querySelector('meta[name="base44-analytics"]');
+    return meta ? meta.getAttribute("content") : null;
+  }
+  function deniedBefore() {
+    try {
+      return window.localStorage.getItem("base44_analytics_denied") === "1";
+    } catch (e) {
+      return false;
+    }
+  }
+  function mayTrack() {
+    const mode = analyticsMode();
+    if (mode === "off") return false;
+    if (mode === "consent") return consentGranted === true;
+    if (mode === "on") return consentGranted === null ? !deniedBefore() : consentGranted;
+    return true;
+  }
+  function trackPageView() {
+    if (!mayTrack()) return;
+    const path = window.location.pathname;
+    if (path === lastPath) return;
+    lastPath = path;
+    const pageName = getPageNameFromPath(path) || "home";
+    const appId = "6a82b4c0da19f8fdb9de6fc4";
+    if (!appId) return;
+    fetch(`/api/app-logs/${appId}/log-user-in-app/${pageName}`, {
+      method: "POST",
+    }).catch(() => {});
+  }
+  const originalPushState = history.pushState.bind(history);
+  history.pushState = function (...args) {
+    originalPushState(...args);
+    trackPageView();
+  };
+  const originalReplaceState = history.replaceState.bind(history);
+  history.replaceState = function (...args) {
+    originalReplaceState(...args);
+    trackPageView();
+  };
+  window.addEventListener("popstate", trackPageView);
+  // A module script runs after the head's classic scripts, so the listener exists by now.
+  // Without it, "consent" never sends and "on" relies on the saved Decline only.
+  try {
+    if (window.__b44Consent) {
+      window.__b44Consent.on(
+        "analytics_storage",
+        function () {
+          consentGranted = true;
+          trackPageView();
+        },
+        function () {
+          consentGranted = false;
+          // A later grant sends the page the visitor is on, even one they saw before.
+          lastPath = "";
+        }
+      );
+    }
+  } catch (e) {}
+  trackPageView();
+}
+</script>
+  <script>
+    (function() {
+        var buffer = window.__base44_preview_native_failures;
+        if (!buffer || buffer.version !== 1 || !Array.isArray(buffer.entries)) {
+            buffer = { version: 1, entries: [], listenersInstalled: false };
+            window.__base44_preview_native_failures = buffer;
+        }
+        if (buffer.listenersInstalled) return;
+        function value(object, key) {
+            return object && typeof object[key] === 'string' ? object[key] : '';
+        }
+        function append(message) {
+            if (!message) return;
+            var normalizedMessage = String(message).slice(0, 5000);
+            for (var index = buffer.entries.length - 1; index >= 0; index--) {
+                var existing = buffer.entries[index];
+                if (existing && existing.level === 'error' && existing.message === normalizedMessage) {
+                    buffer.entries.splice(index, 1);
+                }
+            }
+            buffer.entries.push({
+                level: 'error',
+                message: normalizedMessage,
+                timestamp: Date.now()
+            });
+            if (buffer.entries.length > 100) {
+                buffer.entries.splice(0, buffer.entries.length - 100);
+            }
+        }
+        buffer.append = append;
+        function handleError(event) {
+            var target = event && event.target;
+            var tagName = value(target, 'tagName').toLowerCase() || 'window';
+            var isModule = tagName === 'script' && value(target, 'type').toLowerCase() === 'module';
+            var resourceType = isModule ? 'module' : tagName;
+            var url = value(target, 'src') || value(target, 'href') || value(event, 'filename');
+            var detail = value(event, 'message') || value(event && event.error, 'message');
+            var prefix = tagName === 'window' ? 'Native browser error' : 'Failed to load ' + resourceType;
+            append(prefix + (url ? ' ' + url : '') + (detail ? ': ' + detail : ''));
+        }
+        function rejectionReason(reason) {
+            if (typeof reason === 'string') return reason;
+            var message = value(reason, 'message');
+            if (message) return message;
+            try { return JSON.stringify(reason) || String(reason); }
+            catch (e) { return String(reason); }
+        }
+        function handleRejection(event) {
+            append('Unhandled promise rejection: ' + rejectionReason(event && event.reason));
+        }
+        function handleCspViolation(event) {
+            var blockedUri = value(event, 'blockedURI') || 'resource';
+            var directive = value(event, 'violatedDirective');
+            append('Content Security Policy blocked ' + blockedUri + (directive ? ' (' + directive + ')' : ''));
+        }
+        function overlayText(root, selector) {
+            var element = root && root.querySelector(selector);
+            return value(element, 'textContent').trim();
+        }
+        function captureViteOverlay(overlay) {
+            var root = overlay && overlay.shadowRoot;
+            var message = overlayText(root, '.message-body');
+            if (!message) return;
+            var plugin = overlayText(root, '.plugin');
+            var details = ['Vite build error: ' + (plugin ? plugin + ' ' : '') + message];
+            var file = overlayText(root, '.file');
+            var frame = overlayText(root, '.frame');
+            var stack = overlayText(root, '.stack');
+            if (file) details.push('File: ' + file);
+            if (frame) details.push(frame);
+            if (stack) details.push(stack);
+            append(details.join(String.fromCharCode(10)));
+        }
+        function captureViteOverlays(node) {
+            if (!node || node.nodeType !== 1) return;
+            if (node.matches && node.matches('vite-error-overlay')) captureViteOverlay(node);
+            if (!node.querySelectorAll) return;
+            var overlays = node.querySelectorAll('vite-error-overlay');
+            for (var index = 0; index < overlays.length; index++) captureViteOverlay(overlays[index]);
+        }
+        window.addEventListener('error', handleError, true);
+        window.addEventListener('unhandledrejection', handleRejection);
+        window.addEventListener('securitypolicyviolation', handleCspViolation);
+        if (typeof MutationObserver !== 'undefined' && document.documentElement) {
+            captureViteOverlays(document.documentElement);
+            new MutationObserver(function(records) {
+                for (var recordIndex = 0; recordIndex < records.length; recordIndex++) {
+                    var nodes = records[recordIndex].addedNodes;
+                    for (var nodeIndex = 0; nodeIndex < nodes.length; nodeIndex++) {
+                        captureViteOverlays(nodes[nodeIndex]);
+                    }
+                }
+            }).observe(document.documentElement, { childList: true, subtree: true });
+        }
+        buffer.listenersInstalled = true;
+    })();
+    </script><script data-preview-data-env-pin="true">
+    (function() {
+        var KEY = 'base44_data_env';
+        var APP_API_PATH = "/api/apps/6a82b4c0da19f8fdb9de6fc4/";
+        var STORAGE_KEY = KEY + ':' + APP_API_PATH;
+        var API_ORIGINS = ["https://app.base44.com", "https://base44.app"].map(function(u) { return new URL(u).origin; });
+        var REQUEST_INIT_KEYS = [
+            'method', 'headers', 'credentials', 'mode', 'cache', 'redirect',
+            'referrer', 'referrerPolicy', 'integrity', 'keepalive', 'signal', 'priority',
+        ];
+        var env = new URLSearchParams(window.location.search).get(KEY);
+        try {
+            if (env === 'dev' || env === 'prod') sessionStorage.setItem(STORAGE_KEY, env);
+            else env = sessionStorage.getItem(STORAGE_KEY);
+        } catch (e) {}
+        if (env !== 'dev' && env !== 'prod') return;
+        function pin(url) {
+            try {
+                var u = new URL(url, window.location.href);
+                var sameOrigin = u.origin === window.location.origin;
+                if (!sameOrigin && API_ORIGINS.indexOf(u.origin) === -1) return url;
+                // The app's own server routes and TanStack server functions build
+                // their SDK client from this request, so they need the selection too.
+                var appServerPath = sameOrigin && (
+                    u.pathname.startsWith('/api/') || u.pathname.startsWith('/_serverFn/')
+                );
+                if (!appServerPath && !u.pathname.startsWith(APP_API_PATH)) return url;
+                // Privileged function/agent routes trust this app's Preview host,
+                // not a dev parameter sent to the generic SDK API origin.
+                if (u.origin !== window.location.origin && (
+                    u.pathname.startsWith(APP_API_PATH + 'functions/') ||
+                    u.pathname.startsWith(APP_API_PATH + 'agents/')
+                )) {
+                    u = new URL(u.pathname + u.search + u.hash, window.location.origin);
+                }
+                u.searchParams.set(KEY, env);
+                return u.toString();
+            } catch (e) { return url; }
+        }
+        var origFetch = window.fetch;
+        window.fetch = function(input, init) {
+            if (typeof input === 'string' || input instanceof URL) {
+                return origFetch.call(this, pin(String(input)), init);
+            }
+            if (!input || !input.url) return origFetch.call(this, input, init);
+            var pinned = pin(input.url);
+            if (pinned === input.url) return origFetch.call(this, input, init);
+            try {
+                input = new Request(input, init);
+                if (!input.keepalive || !input.body) {
+                    return origFetch.call(this, new Request(pinned, input));
+                }
+                // RequestInit exposes an existing body as a stream, which Fetch
+                // forbids with keepalive. Buffer only that case, after init overrides.
+                var self = this;
+                return input.blob().then(function(body) {
+                    var rebuilt = { body: body };
+                    REQUEST_INIT_KEYS.forEach(function(key) {
+                        if (input[key] !== undefined) rebuilt[key] = input[key];
+                    });
+                    return origFetch.call(self, new Request(pinned, rebuilt));
+                });
+            } catch (error) { return Promise.reject(error); }
+        };
+        var origOpen = XMLHttpRequest.prototype.open;
+        XMLHttpRequest.prototype.open = function(method, url) {
+            arguments[1] = pin(String(url));
+            return origOpen.apply(this, arguments);
+        };
+    })();
+    </script><script defer="" data-preview-inject="true" data-parent-origins="https://app.base44.com https://superagent.base44.com" data-app-id="6a82b4c0da19f8fdb9de6fc4" data-preview-type="latest_preview" data-rum-app-id="db50c921-10c3-4f12-bccb-950fa174b708" data-rum-client-token="pubfe8a4f2972b412b4556fd67e77f82cb4" data-dd-site="datadoghq.com" src="./builder-bridge.js.download"></script><script>
+    (function() {
+        var IGNORE = { SCRIPT: 1, STYLE: 1, LINK: 1, META: 1, NOSCRIPT: 1, TEMPLATE: 1 };
+        const fire = () => window.parent.postMessage({ type: 'IFRAME_CONTENT_READY' }, '*');
+        function check() {
+            var body = document.body;
+            if (!body) return false;
+            for (var idx = 0; idx < body.children.length; idx++) {
+                if (!IGNORE[body.children[idx].tagName]) return true;
+            }
+            return false;
+        }
+        function start() {
+            if (check()) { fire(); return; }
+            var observer = new MutationObserver(function() {
+                if (check()) { fire(); observer.disconnect(); }
+            });
+            observer.observe(document.documentElement, { childList: true, subtree: true });
+        }
+        if (document.body) { start(); }
+        else { document.addEventListener('DOMContentLoaded', start, { once: true }); }
+    })();
+    </script><script>
+    (function() {
+        if (window.self === window.top) return;
+        var APP_ID = "6a82b4c0da19f8fdb9de6fc4";
+        var PREVIEW_TYPE = "latest_preview";
+        var on404 = false;
+        var booted = false;
+        function detect() { return !!document.querySelector('[data-source-location^="PageNotFound:"]'); }
+        function payload() { return { app_id: APP_ID, preview_type: PREVIEW_TYPE, url_path: window.location.pathname }; }
+        function tick() {
+            var now = detect();
+            if (now && !on404) {
+                on404 = true;
+                window.parent.postMessage({ type: 'PREVIEW_PAGE_NOT_FOUND', payload: payload() }, '*');
+            } else if (!now && (on404 || !booted)) {
+                // On first tick of a fresh document, emit a cleared signal even when
+                // not currently on a 404 — the parent may have latched is404=true from
+                // a previous document at the same URL (e.g. after an iframe reload).
+                on404 = false;
+                window.parent.postMessage({ type: 'PREVIEW_PAGE_NOT_FOUND_CLEARED', payload: payload() }, '*');
+            }
+            booted = true;
+        }
+        function start() {
+            tick();
+            new MutationObserver(tick).observe(document.body, { childList: true, subtree: true });
+        }
+        if (document.body) { start(); }
+        else { document.addEventListener('DOMContentLoaded', start, { once: true }); }
+    })();
+    </script><script>
+    (function() {
+        if (window.self === window.top) return;
+        var HEADINGS = ["Your app will appear here", "Your app starts here"];
+        var shown = false;
+        var booted = false;
+        var documentId = Math.random().toString(36).slice(2);
+        function detect() {
+            var hs = document.getElementsByTagName('h1');
+            for (var i = 0; i < hs.length; i++) {
+                if (HEADINGS.indexOf((hs[i].textContent || '').trim()) !== -1) return true;
+            }
+            return false;
+        }
+        function payload() { return { app_id: "6a82b4c0da19f8fdb9de6fc4", preview_type: "latest_preview", url_path: window.location.pathname, document_id: documentId }; }
+        function tick() {
+            var now = detect();
+            if (now && !shown) {
+                shown = true;
+                window.parent.postMessage({ type: 'PREVIEW_TEMPLATE_HOME_SHOWN', payload: payload() }, '*');
+            } else if (!now && (shown || !booted)) {
+                shown = false;
+                window.parent.postMessage({ type: 'PREVIEW_TEMPLATE_HOME_CLEARED', payload: payload() }, '*');
+            }
+            booted = true;
+        }
+        function start() {
+            tick();
+            new MutationObserver(tick).observe(document.body, { childList: true, subtree: true, characterData: true });
+        }
+        if (document.body) { start(); }
+        else { document.addEventListener('DOMContentLoaded', start, { once: true }); }
+    })();
+    </script><script>
+    (function() {
+        if (window.self === window.top) return;
+        function postUnsupported(reason) {
+            window.parent.postMessage({
+                type: 'IFRAME_FIRST_CONTENTFUL_PAINT_UNSUPPORTED',
+                payload: { reason: reason, userAgent: navigator.userAgent }
+            }, '*');
+        }
+        if (typeof PerformanceObserver === 'undefined') {
+            postUnsupported('no_performance_observer');
+            return;
+        }
+        try {
+            var obs = new PerformanceObserver(function(list) {
+                var entries = list.getEntries();
+                for (var i = 0; i < entries.length; i++) {
+                    if (entries[i].name === 'first-contentful-paint') {
+                        obs.disconnect();
+                        window.parent.postMessage({ type: 'IFRAME_FIRST_CONTENTFUL_PAINT' }, '*');
+                        return;
+                    }
+                }
+            });
+            obs.observe({ type: 'paint', buffered: true });
+        } catch (e) {
+            postUnsupported('observe_threw:' + (e && e.name ? e.name : 'Error'));
+        }
+    })();
+    </script><script>
+    (function() {
+        if (window.self === window.top) return;
+        var lastUrl = window.location.href;
+        function notify() {
+            var url = window.location.href;
+            if (url === lastUrl) return;
+            lastUrl = url;
+            window.parent.postMessage({ type: 'APP_CHANGED_URL', url: url }, '*');
+        }
+        var origPush = history.pushState.bind(history);
+        history.pushState = function() { origPush.apply(history, arguments); notify(); };
+        var origReplace = history.replaceState.bind(history);
+        history.replaceState = function() { origReplace.apply(history, arguments); notify(); };
+        window.addEventListener('popstate', notify);
+        window.parent.postMessage({ type: 'APP_CHANGED_URL', url: window.location.href }, '*');
+    })();
+    </script><script src="./datadog-rum.js.download"></script><script src="./datadog-logs.js.download"></script></head>
+  <body>
+    <div id="root"><div class="min-h-screen bg-slate-50 flex"><aside class="fixed lg:static inset-y-0 left-0 z-40 w-64 bg-slate-900 text-slate-100 flex-col transition-transform duration-300 -translate-x-full lg:translate-x-0 lg:flex flex"><div class="px-6 py-6 border-b border-slate-800"><div class="flex items-center gap-2"><div class="w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center font-bold text-white">P</div><div><h1 class="font-semibold text-sm tracking-tight">PFRS Books</h1><p class="text-[10px] text-slate-400 uppercase tracking-widest">Philippine Accounting</p></div></div></div><div class="px-4 py-3 relative"><button class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 transition text-left"><div class="min-w-0"><p class="text-[10px] text-slate-400 uppercase tracking-wider">Current Business</p><p class="text-sm font-medium truncate">B Computer Sales</p></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-4 h-4 text-slate-400 shrink-0"><path d="m6 9 6 6 6-6"></path></svg></button></div><nav class="flex-1 px-3 py-2 space-y-1 overflow-y-auto"><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition bg-emerald-500/15 text-emerald-400 font-medium" href="https://preview--pfrs-ledger-prime.base44.app/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard w-4 h-4 shrink-0"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>Dashboard</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/businesses"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2 w-4 h-4 shrink-0"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>Businesses</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/chart-of-accounts"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open w-4 h-4 shrink-0"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>Chart of Accounts</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/journal-entries"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text w-4 h-4 shrink-0"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>Journal Entries</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/parties"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-4 h-4 shrink-0"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>Parties</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/inventory"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package w-4 h-4 shrink-0"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"></path><path d="M12 22V12"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><path d="m7.5 4.27 9 5.15"></path></svg>Inventory</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/locations"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-4 h-4 shrink-0"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Locations</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/transfers"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-right w-4 h-4 shrink-0"><path d="M8 3 4 7l4 4"></path><path d="M4 7h16"></path><path d="m16 21 4-4-4-4"></path><path d="M20 17H4"></path></svg>Stock Transfers</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/sales-quotes"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text w-4 h-4 shrink-0"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>Sales Quotes</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/sales-orders"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart w-4 h-4 shrink-0"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>Sales Orders</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/pos"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart w-4 h-4 shrink-0"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>Point of Sale</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/receivables"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-down w-4 h-4 shrink-0"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8"></path><path d="m8 12 4 4 4-4"></path></svg>Receivables</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/purchase-orders"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-list w-4 h-4 shrink-0"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path></svg>Purchase Orders</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/payables"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-up w-4 h-4 shrink-0"><circle cx="12" cy="12" r="10"></circle><path d="m16 12-4-4-4 4"></path><path d="M12 16V8"></path></svg>Payables</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/expenses"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-receipt w-4 h-4 shrink-0"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"></path><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path d="M12 17.5v-11"></path></svg>Expenses</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/projects"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder-kanban w-4 h-4 shrink-0"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path><path d="M8 10v4"></path><path d="M12 10v2"></path><path d="M16 10v6"></path></svg>Projects</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/payroll"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wallet w-4 h-4 shrink-0"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"></path><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path></svg>Payroll</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/journal-book"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-list w-4 h-4 shrink-0"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path></svg>Journal Book</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/ledger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-marked w-4 h-4 shrink-0"><path d="M10 2v8l3-3 3 3V2"></path><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"></path></svg>Ledger</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/financial-statements"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-pie w-4 h-4 shrink-0"><path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"></path><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path></svg>Financial Statements</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/reports"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-column w-4 h-4 shrink-0"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg>Reports</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition text-slate-300 hover:bg-slate-800 hover:text-white" href="https://preview--pfrs-ledger-prime.base44.app/user-access"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check w-4 h-4 shrink-0"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>User Access</a></nav><div class="px-6 py-4 border-t border-slate-800 text-[10px] text-slate-500">PFRS-compliant · v1.0</div></aside><div class="flex-1 flex flex-col min-w-0"><header class="lg:hidden flex items-center justify-between px-4 py-3 bg-white border-b"><button><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu w-6 h-6"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><span class="font-semibold text-sm">PFRS Books</span><div class="w-6"></div></header><main class="flex-1 overflow-y-auto"><div class="p-6 lg:p-10 max-w-7xl mx-auto"><div class="mb-8"><h1 class="text-2xl font-bold text-slate-800">B Computer Sales</h1><p class="text-sm text-slate-500 mt-1">Sole Proprietorship · PFRS for Small Entities</p></div><div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8"><div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm"><div class="flex items-center justify-between mb-3"><span class="text-xs font-medium text-slate-500 uppercase tracking-wider">Total Assets</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wallet w-4 h-4 text-emerald-500"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"></path><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path></svg></div><p class="text-xl lg:text-2xl font-bold text-slate-800">₱11,156,123.36</p></div><div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm"><div class="flex items-center justify-between mb-3"><span class="text-xs font-medium text-slate-500 uppercase tracking-wider">Total Liabilities</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up w-4 h-4 text-amber-500"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div><p class="text-xl lg:text-2xl font-bold text-slate-800">₱988,846.43</p></div><div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm"><div class="flex items-center justify-between mb-3"><span class="text-xs font-medium text-slate-500 uppercase tracking-wider">Owner's Equity</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2 w-4 h-4 text-sky-500"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg></div><p class="text-xl lg:text-2xl font-bold text-slate-800">₱10,167,276.93</p></div><div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm"><div class="flex items-center justify-between mb-3"><span class="text-xs font-medium text-slate-500 uppercase tracking-wider">Net Income</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up w-4 h-4 text-emerald-500"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div><p class="text-xl lg:text-2xl font-bold text-slate-800">₱167,276.93</p></div></div><div class="grid lg:grid-cols-3 gap-6"><div class="lg:col-span-2 bg-white rounded-2xl border border-slate-100 shadow-sm p-6"><div class="flex items-center justify-between mb-4"><h3 class="font-semibold text-slate-800">Recent Journal Entries</h3><a class="text-xs text-emerald-600 font-medium hover:underline" href="https://preview--pfrs-ledger-prime.base44.app/journal-entries">View all</a></div><div class="space-y-2"><div class="flex items-center justify-between py-3 border-b border-slate-50 last:border-0"><div><p class="text-sm font-medium text-slate-700">Cost of Goods Sold — 000-01162026</p><p class="text-xs text-slate-400">COGS-000-01162026 · 1/16/2026</p></div><span class="text-sm font-semibold text-slate-600">₱546,031.15</span></div><div class="flex items-center justify-between py-3 border-b border-slate-50 last:border-0"><div><p class="text-sm font-medium text-slate-700">Sales Invoice — A Customer</p><p class="text-xs text-slate-400">000-01162026 · 1/16/2026</p></div><span class="text-sm font-semibold text-slate-600">₱756,000.00</span></div><div class="flex items-center justify-between py-3 border-b border-slate-50 last:border-0"><div><p class="text-sm font-medium text-slate-700">Cost of Goods Sold — 000-01152026</p><p class="text-xs text-slate-400">COGS-000-01152026 · 1/15/2026</p></div><span class="text-sm font-semibold text-slate-600">₱234,013.35</span></div><div class="flex items-center justify-between py-3 border-b border-slate-50 last:border-0"><div><p class="text-sm font-medium text-slate-700">Sales Invoice — A Customer</p><p class="text-xs text-slate-400">000-01152026 · 1/15/2026</p></div><span class="text-sm font-semibold text-slate-600">₱315,000.00</span></div><div class="flex items-center justify-between py-3 border-b border-slate-50 last:border-0"><div><p class="text-sm font-medium text-slate-700">Expense — LBC</p><p class="text-xs text-slate-400">EXP-20261019-1234 · 1/5/2026</p></div><span class="text-sm font-semibold text-slate-600">₱10,000.00</span></div></div></div><div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6"><h3 class="font-semibold text-slate-800 mb-4">Quick Actions</h3><div class="space-y-2"><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition group" href="https://preview--pfrs-ledger-prime.base44.app/journal-entries/new"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text w-4 h-4 text-slate-400 group-hover:text-emerald-600"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg><span class="text-sm text-slate-700">New Journal Entry</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-3 h-3 ml-auto text-slate-300 group-hover:text-emerald-600"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition group" href="https://preview--pfrs-ledger-prime.base44.app/chart-of-accounts"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open w-4 h-4 text-slate-400 group-hover:text-emerald-600"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg><span class="text-sm text-slate-700">View Chart of Accounts</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-3 h-3 ml-auto text-slate-300 group-hover:text-emerald-600"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition group" href="https://preview--pfrs-ledger-prime.base44.app/parties"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-4 h-4 text-slate-400 group-hover:text-emerald-600"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span class="text-sm text-slate-700">Manage Parties</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-3 h-3 ml-auto text-slate-300 group-hover:text-emerald-600"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition group" href="https://preview--pfrs-ledger-prime.base44.app/financial-statements"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up w-4 h-4 text-slate-400 group-hover:text-emerald-600"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg><span class="text-sm text-slate-700">Financial Statements</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-3 h-3 ml-auto text-slate-300 group-hover:text-emerald-600"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a></div></div></div></div></main></div></div><div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;"><ol tabindex="-1" class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]"></ol></div></div>
+  
+
+</body></html>
